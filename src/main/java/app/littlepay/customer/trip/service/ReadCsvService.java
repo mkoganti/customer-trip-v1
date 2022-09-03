@@ -25,6 +25,7 @@ public class ReadCsvService {
 
     try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
       CsvToBean<CustomerTapInfo> cb = new CsvToBeanBuilder<CustomerTapInfo>(reader)
+        .withIgnoreLeadingWhiteSpace(true)
         .withType(CustomerTapInfo.class)
         .build();
 
